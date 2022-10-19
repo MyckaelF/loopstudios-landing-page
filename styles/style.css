@@ -9,6 +9,7 @@
 body {
     font-size: var(--fontSize);
     font-family: var(--fontJosefin);
+    color: var(--white);
 }
 
 .container {
@@ -19,6 +20,12 @@ body {
 
 img {
     vertical-align: bottom;
+}
+
+li,
+.seeCreations button,
+.textsImages picture img {
+    cursor: pointer;
 }
 
 .header {
@@ -55,7 +62,7 @@ img {
     color: var(--white);
     text-transform: uppercase;
     border: 3px solid var(--white);
-    padding: 3%;
+    padding: 2.5rem;
     font-size: 4.5rem;
     font-weight: 300;
     width: 60%;
@@ -69,11 +76,51 @@ img {
 }
 
 .navbar ul li {
+    position: relative;
     padding: 0 20px;
+    width: fit-content;
+}
+
+.navbar ul li:last-child {
+    padding-right: 0;
 }
 
 .navbar ul li:first-child {
     padding-left: 0;
+}
+
+.navbar ul li::before,
+.icons li::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    transition: all 500ms ease;
+}
+
+.navbar ul li:first-child::before {
+    left: 35%;
+}
+
+.navbar ul li:last-child::before{
+    left: 65%;
+}
+
+.navbar ul li:hover::before {
+    width: 30%;
+}
+
+.icons li:hover::before {
+    width: 100%;
+}
+
+.icons li:last-child {
+    padding-right: 0;
+    margin-right: 0;
 }
 
 .interactiveVr {
@@ -90,10 +137,13 @@ img {
     bottom: -1px;
 }
 
-.textContent h2 {
+.textContent h2, .seeCreations h2 {
+    color: var(--black);
     font-size: 3rem;
     text-transform: uppercase;
     font-weight: 300;
+}
+.textContent h2 {
     margin-bottom: 2rem;
 }
 
@@ -113,19 +163,19 @@ img {
     margin-bottom: 5rem;
 }
 
-.seeCreations h2 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    font-weight: 300;
-}
-
-.seeCreations button{
+.seeCreations button {
     outline: none;
     border: 1px solid var(--black);
     background-color: var(--white);
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     padding: 1% 2%;
+    transition: all 500ms ease;
+}
+
+.seeCreations button:hover {
+    background-color: var(--black);
+    color: var(--white);
 }
 
 .gridImages {
@@ -137,6 +187,7 @@ img {
 
 .gridImages picture img {
     width: 100%;
+    filter: brightness(0.8);
 }
 
 .textsImages {
@@ -148,7 +199,6 @@ img {
     bottom: 30px;
     left: 40px;
     z-index: 10000;
-    color: var(--white);
     text-transform: uppercase;
     font-weight: 300;
     font-size: 2rem;
@@ -159,8 +209,13 @@ img {
     width: 40%;
 }
 
+.textsImages:hover {
+    color: var(--black);
+    transition: all 500ms ease;
+}
+
 .textsImages picture img:hover {
-    opacity: 0.5;
+    opacity: 0.4;
     transition: all 500ms ease;
 }
 
@@ -186,7 +241,11 @@ img {
 }
 
 .icons {
-    display: flex;
+    display: flex;    
+}
+
+.icons li {
+    position: relative;
 }
 
 .rights {
