@@ -10,6 +10,7 @@ body {
     font-size: var(--fontSize);
     font-family: var(--fontJosefin);
     color: var(--white);
+    background-color: var(--white);
 }
 
 .container {
